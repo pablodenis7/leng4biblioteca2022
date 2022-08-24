@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "ciudades")
 public class Ciudad implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ciu_codigo")
