@@ -58,8 +58,6 @@ public class AutorRest {
 	}
 	
 	
-
-	
 	//actualizar
 		@POST 
 	@Produces(MediaType.APPLICATION_JSON)
@@ -67,20 +65,14 @@ public class AutorRest {
 	public Autor actualizar( Autor autor){
 		return as.actualizar(autor);
 	}
-	
-	
-	
-	
-	
-
-	
+	//incluir
 	@POST 
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/incluir")
 	public Autor incluir( Autor autor){
 		return as.incluir(autor);
 	}
-	
+	//eliminar
 	@DELETE
 	@Path("/eliminar/{id}")
 	public void eliminar(@PathParam("id") Integer codigo){
