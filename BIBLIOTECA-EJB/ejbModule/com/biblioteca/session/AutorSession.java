@@ -7,7 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import com.biblioteca.entidad.Autor; 
 
 @Stateless
@@ -46,6 +45,7 @@ public Map<String,Object> consultarAutoresPorNombre(String nombre){
 	}
 	///Inserta un autor en la base de datos
 	public Autor incluir(Autor autor) {
+		autor.setCodigo(null);
 		em.persist(autor);//insertar
 		em.refresh(autor);//consulta el dato insertado 
 		return autor;
@@ -55,7 +55,7 @@ public Map<String,Object> consultarAutoresPorNombre(String nombre){
 		
 		return autor;
 	}
-	private Autor actualizar(Autor autor) {
+	public Autor actualizar(Autor autor) {
 		Autor autorActualizado = null; 
 		Autor autorbuscar = buscarPorCodigo(autor.getCodigo());
 		if (autorbuscar == null) {

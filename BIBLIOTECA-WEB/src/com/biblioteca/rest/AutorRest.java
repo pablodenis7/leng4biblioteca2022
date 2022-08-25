@@ -13,7 +13,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.Body;
 
 import com.biblioteca.entidad.Autor;
 import com.biblioteca.session.AutorSession;
@@ -41,6 +40,39 @@ public class AutorRest {
 		return as.consultarAutoresPorNombre(nombre);
 
 	}
+	//buscarPorCodigo 
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/buscar-Por-Codigo")
+	//Parametros: QueryParam, PathParam , BodyParam 
+	public Autor buscarporCodigo(@QueryParam("codigo") Integer codigo) {
+		return as.buscarPorCodigo(codigo);
+	}
+	//editar
+	@POST 
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/editar")
+	public Autor editar( Autor autor){
+		return as.editar(autor);
+	}
+	
+	
+
+	
+	//actualizar
+		@POST 
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/actualizar")
+	public Autor actualizar( Autor autor){
+		return as.actualizar(autor);
+	}
+	
+	
+	
+	
+	
+	
 	
 	@POST 
 	@Produces(MediaType.APPLICATION_JSON)
@@ -51,7 +83,7 @@ public class AutorRest {
 	
 	@DELETE
 	@Path("/eliminar/{id}")
-	public void eliminar(@PathParam ("id") Integer codigo){
+	public void eliminar(@PathParam("id") Integer codigo){
 			as.eliminar(codigo);
 	}
 }
